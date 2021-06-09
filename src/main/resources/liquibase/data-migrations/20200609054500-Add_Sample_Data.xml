@@ -1,0 +1,76 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.10.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+    <changeSet  author="brandonlenz"  id="20200609054500-sample-parts">
+        <insert tableName="part">
+            <column  name="name"  value="SSD"/>
+            <column  name="sku"  value="1bc"/>
+        </insert>
+        <insert tableName="part">
+            <column  name="name"  value="CPU"/>
+            <column  name="sku"  value="2abc"/>
+        </insert>
+        <insert tableName="part">
+            <column  name="name"  value="GPU"/>
+            <column  name="sku"  value="3abc"/>
+        </insert>
+        <insert tableName="part">
+            <column  name="name"  value="Motherboard"/>
+            <column  name="sku"  value="4abc"/>
+        </insert>
+    </changeSet>
+
+    <changeSet  author="brandonlenz"  id="20200609054500-sample-regions">
+        <insert tableName="region">
+            <column  name="name"  value="North America"/>
+            <column  name="code"  value="NA"/>
+        </insert>
+        <insert tableName="region">
+            <column  name="name"  value="Europe"/>
+            <column  name="code"  value="EU"/>
+        </insert>
+    </changeSet>
+
+    <changeSet  author="brandonlenz"  id="20200609054500-sample-regional-quantities">
+        <insert tableName="regional_quantity">
+            <column  name="quantity"  value="10000"/>
+            <column  name="part_id"  value="2"/>
+            <column  name="region_id"  value="1"/>
+        </insert>
+        <insert tableName="regional_quantity">
+            <column  name="quantity"  value="5000"/>
+            <column  name="part_id"  value="1"/>
+            <column  name="region_id"  value="1"/>
+        </insert>
+        <insert tableName="regional_quantity">
+            <column  name="quantity"  value="275"/>
+            <column  name="part_id"  value="3"/>
+            <column  name="region_id"  value="1"/>
+        </insert>
+        <insert tableName="regional_quantity">
+            <column  name="quantity"  value="1000"/>
+            <column  name="part_id"  value="4"/>
+            <column  name="region_id"  value="1"/>
+        </insert>
+        <insert tableName="regional_quantity">
+            <column  name="quantity"  value="50000"/>
+            <column  name="part_id"  value="2"/>
+            <column  name="region_id"  value="2"/>
+        </insert>
+        <insert tableName="regional_quantity">
+            <column  name="quantity"  value="1000"/>
+            <column  name="part_id"  value="1"/>
+            <column  name="region_id"  value="2"/>
+        </insert>
+        <insert tableName="regional_quantity">
+            <column  name="quantity"  value="800"/>
+            <column  name="part_id"  value="3"/>
+            <column  name="region_id"  value="2"/>
+        </insert>
+        <insert tableName="regional_quantity">
+            <column  name="quantity"  value="700"/>
+            <column  name="part_id"  value="4"/>
+            <column  name="region_id"  value="2"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
+

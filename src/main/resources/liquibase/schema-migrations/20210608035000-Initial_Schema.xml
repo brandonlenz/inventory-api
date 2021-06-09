@@ -1,0 +1,51 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.10.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.10.xsd">
+    <changeSet author="brandonlenz (generated)" id="1623181739493-1">
+        <createTable tableName="part">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="partPK"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sku" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="brandonlenz (generated)" id="1623181739493-2">
+        <createTable tableName="region">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="regionPK"/>
+            </column>
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="brandonlenz (generated)" id="1623181739493-3">
+        <createTable tableName="regional_quantity">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="regional_quantityPK"/>
+            </column>
+            <column name="quantity" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="part_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="region_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="brandonlenz (generated)" id="1623181739493-4">
+        <addForeignKeyConstraint baseColumnNames="region_id" baseTableName="regional_quantity" constraintName="FK3nbsg5o7yol9909hpixt49cfo" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="region" validate="true"/>
+    </changeSet>
+    <changeSet author="brandonlenz (generated)" id="1623181739493-5">
+        <addForeignKeyConstraint baseColumnNames="part_id" baseTableName="regional_quantity" constraintName="FKrurmlwdlwnoww03e2aov1xcir" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="part" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
