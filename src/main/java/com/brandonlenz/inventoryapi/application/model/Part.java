@@ -9,8 +9,7 @@ import javax.persistence.*;
 public class Part {
 
     @Id
-    @SequenceGenerator(name = "part_generator", sequenceName = "part_sequence")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "part_generator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
 
