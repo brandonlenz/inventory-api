@@ -6,14 +6,7 @@ import javax.persistence.*;
 public class RegionalQuantity {
 
     @Id
-    @SequenceGenerator(
-        name = "regional_quantity_generator",
-        sequenceName = "regional_quantity_sequence"
-    )
-    @GeneratedValue(
-        strategy = GenerationType.SEQUENCE,
-        generator = "regional_quantity_generator"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
 
