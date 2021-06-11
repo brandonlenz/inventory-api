@@ -3,7 +3,7 @@
     <changeSet  author="brandonlenz"  id="20200609054500-sample-parts">
         <insert tableName="part">
             <column  name="name"  value="SSD"/>
-            <column  name="sku"  value="1bc"/>
+            <column  name="sku"  value="1abc"/>
         </insert>
         <insert tableName="part">
             <column  name="name"  value="CPU"/>
@@ -17,6 +17,12 @@
             <column  name="name"  value="Motherboard"/>
             <column  name="sku"  value="4abc"/>
         </insert>
+
+        <rollback>
+            <delete tableName="part">
+                <where>sku IN ('1abc', '2abc', '3abc', '4abc')</where>
+            </delete>
+        </rollback>
     </changeSet>
 
     <changeSet  author="brandonlenz"  id="20200609054500-sample-regions">
@@ -28,6 +34,12 @@
             <column  name="name"  value="Europe"/>
             <column  name="code"  value="EU"/>
         </insert>
+
+        <rollback>
+            <delete tableName="region">
+                <where>code IN ('NA', 'EU')</where>
+            </delete>
+        </rollback>
     </changeSet>
 
     <changeSet  author="brandonlenz"  id="20200609054500-sample-regional-quantities">
@@ -71,6 +83,12 @@
             <column  name="part_id"  value="4"/>
             <column  name="region_id"  value="2"/>
         </insert>
+
+        <rollback>
+            <delete tableName="regional_quantity">
+                <where>part_id IN (1, 2, 3, 4)</where>
+            </delete>
+        </rollback>
     </changeSet>
 </databaseChangeLog>
 
