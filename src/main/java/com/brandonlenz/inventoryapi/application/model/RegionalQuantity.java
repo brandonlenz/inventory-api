@@ -1,6 +1,7 @@
 package com.brandonlenz.inventoryapi.application.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class RegionalQuantity {
@@ -21,13 +22,17 @@ public class RegionalQuantity {
     @Column(nullable = false)
     private Long quantity;
 
+    @Column
+    private Date receivedDate;
+
     protected RegionalQuantity() {
     }
 
-    public RegionalQuantity(Part part, Region region, Long quantity) {
+    public RegionalQuantity(Part part, Region region, Long quantity, Date receivedDate) {
         this.part = part;
         this.region = region;
         this.quantity = quantity;
+        this.receivedDate = receivedDate;
     }
 
     public Long getId() {
@@ -46,6 +51,10 @@ public class RegionalQuantity {
         return quantity;
     }
 
+    public Date getReceivedDate() {
+        return receivedDate;
+    }
+
     public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
@@ -57,6 +66,7 @@ public class RegionalQuantity {
                 ", part=" + part +
                 ", region=" + region +
                 ", quantity=" + quantity +
+                ", receivedDate=" + receivedDate +
                 '}';
     }
 }
